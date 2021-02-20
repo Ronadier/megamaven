@@ -1,19 +1,19 @@
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class Consumer {
   Map<Integer, Deque<String>> tasks = new HashMap<>();
   LinkedList<Integer> priorities = new LinkedList<>();
 
-  public Consumer() {
-    this.priorities.add(0);
-    this.priorities.add(1);
-    this.priorities.add(2);
+  private void addPriority (int priority) {
+    this.priorities.add(priority);
+    Collections.sort(priorities);
+    Collections.reverse(priorities);
   }
 
   public void addTask (String task, int priority) {
+    if (!this.priorities.contains(priority)) {
+      addPriority(priority);
+    }
     if (this.tasks.containsKey(priority)) {
       Deque<String> tasksByPriority = this.tasks.get(priority);
       tasksByPriority.add(task);
