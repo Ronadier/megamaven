@@ -20,7 +20,7 @@ public class HTTPConnectionHelper {
     HttpUriRequest httpGet = new HttpGet("https://reqres.in/api/users/2");
     try (CloseableHttpResponse responseGet = httpclient.execute(httpGet)) {
       HttpEntity entityGet = responseGet.getEntity();
-      System.out.println(EntityUtils.toString(entityGet));
+      System.out.println("Response GET: " + EntityUtils.toString(entityGet));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -32,7 +32,7 @@ public class HTTPConnectionHelper {
     httpPost.setEntity(new UrlEncodedFormEntity(params));
     try (CloseableHttpResponse responsePost = httpclient.execute(httpPost)) {
       HttpEntity entityPost = responsePost.getEntity();
-      System.out.println(EntityUtils.toString(entityPost));
+      System.out.println("Response POST:" + EntityUtils.toString(entityPost));
     } catch (IOException e) {
       e.printStackTrace();
     }
