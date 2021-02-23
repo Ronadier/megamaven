@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.*;
+import org.testng.annotations.Test;
 
 public class ConsumerTest {
   private Consumer consumer = new Consumer();
