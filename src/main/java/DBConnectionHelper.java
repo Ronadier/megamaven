@@ -4,11 +4,6 @@ import java.sql.*;
 
 public class DBConnectionHelper {
   public static void main(String[] args) throws SQLException {
-    String url = "localhost";
-    String port = "1829";
-    String dbName = "crmcvrt";
-    String user = "EIP_USER";
-    String password = "eip_user";
     DriverManager.registerDriver (new oracle.jdbc.OracleDriver());
     try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4455))(CONNECT_DATA=(SERVICE_NAME = S1uniexp.south.rt.ru)))",
             "MDM_API_AST", "d0Lirung#")) {
