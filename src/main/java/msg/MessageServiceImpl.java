@@ -8,9 +8,12 @@ import java.util.List;
 @WebService(endpointInterface = "msg.MessageService")
 public class MessageServiceImpl implements MessageService{
   private List<Message> messages = new ArrayList<>();
+  InsertToDB insert = new InsertToDB();
+
   @Override
   public String addMessage(Message message) {
     messages.add(message);
+    insert.insertToDB(message);
     return "готовенько, добавлено";
   }
 

@@ -28,6 +28,6 @@ public class Message {
   }
 
   protected @Getter @Setter String sender;
-  private @Getter @Setter String message;
+  protected @Getter @Setter String message;
   protected @Getter @Setter Date date;
 }
