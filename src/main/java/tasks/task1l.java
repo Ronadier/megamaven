@@ -48,8 +48,7 @@ public class task1l {
     CloseableHttpClient httpclient = HttpClients.createDefault();
     HttpGet httpGet = new HttpGet("http://worldtimeapi.org/api/timezone/Europe/Moscow");
     try (CloseableHttpResponse responseGet = httpclient.execute(httpGet)) {
-      HttpEntity entityGet = responseGet.getEntity();
-      JSONObject json = new JSONObject(EntityUtils.toString(entityGet));
+      JSONObject json = new JSONObject(EntityUtils.toString(responseGet.getEntity()));
       LocalTime apiTime = LocalTime.parse(json.getString("datetime").split("T")[1].split("\\+")[0]);
       return apiTime;
     } catch (IOException | JSONException e) {
